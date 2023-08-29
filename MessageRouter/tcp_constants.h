@@ -1,0 +1,8 @@
+#ifndef TCP_CONSTANTS
+#define TCP_CONSTANTS
+#pragma once
+
+#define REQUEST_RECEIVER_PORT 4000
+#define MAX_MSG_SIZE 1024
+
+#endif // !TCP_CONSTANTS
