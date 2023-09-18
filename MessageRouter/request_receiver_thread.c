@@ -1,7 +1,7 @@
 #include "request_receiver_thread.h"
 
 // Setup and Monitor the TCP server for messages from clients
-DWORD WINAPI request_receiver_thread(LPVOID requestsReceivedBuffer) {
+DWORD WINAPI request_receiver_thread(LPVOID request_receiver_config) {
     uint64_t requestID = 0;
     // Initialize TCP server
     SOCKET serverSocket = init_server((uint16_t)(*((int*)REQUEST_RECEIVER_PORT)));

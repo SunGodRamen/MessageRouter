@@ -7,7 +7,12 @@
 
 #include <stdbool.h>
 
-DWORD WINAPI request_dispatcher_thread(LPVOID param);
+typedef struct {
+	MessageBuffer requestsReceivedBuffer;
+	MessageBuffer requestsSentBuffer;
+} request_dispatcher_config;
+
+DWORD WINAPI request_dispatcher_thread(LPVOID request_dispatcher_config);
 
 
 #endif // !REQUEST_DISPATCHER_THREAD_H

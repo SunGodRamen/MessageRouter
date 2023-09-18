@@ -1,13 +1,13 @@
 #include "request_dispatcher_thread.h"
 
 // Check for message on the buffer, if present, pop, find destination, send, log confirmation
-DWORD WINAPI request_dispatcher_thread(LPVOID *requestsReceivedBuffer, LPVOID *requestsSentBuffer) {
+DWORD WINAPI request_dispatcher_thread(LPVOID request_dispatcher_config) {
 
     uint64_t queuedRequest = { 0 };
     while (1) {
         
         while (!queuedRequest) {
-            pop_message(requestsReceivedBuffer, &queuedRequest);
+            pop_message(request_dispatcher_config->requestsReceivedBuffer, &queuedRequest);
         }
 
         // find Client ip and port using request uri
